@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "Se usar este código, cite o artigo abaixo."
+title: "hybrid-uav-tracking-prediction"
+repository-code: "https://github.com/IghorRibeiro/hybrid-uav-tracking-prediction"
+license: MIT
+authors:
+  - family-names: Ribeiro
+    given-names: Ighor de Souza
+    affiliation: "Centro de Instrução Almirante Alexandrino (CIAA)"
+  - family-names: Fernandes
+    given-names: Rigel Procópio
+    affiliation: "Diretoria de Sistemas de Armas da Marinha (DSAM)"
+  - family-names: Luna
+    given-names: Gabriel de Sapienza
+    affiliation: "Universidade Federal do Rio de Janeiro (UFRJ)"
+preferred-citation:
+  type: conference-paper
+  title: "Arquitetura Híbrida para Rastreamento e Predição de Trajetória de VANTs Baseada em Visão Computacional e Filtro de Kalman"
+  authors:
+    - family-names: Ribeiro
+      given-names: Ighor de Souza
+    - family-names: Fernandes
+      given-names: Rigel Procópio
+    - family-names: Luna
+      given-names: Gabriel de Sapienza
+  collection-title: "Simpósio de Aplicações Operacionais em Áreas de Defesa (SIGE)"
+  year: 2026

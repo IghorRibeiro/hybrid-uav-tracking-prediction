@@ -1,0 +1,32 @@
+# Ambiente
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+._*
+.idea/
+.vscode/
+
+# Dados (baixados e convertidos pelos passos 1 e 2)
+datasets/
+
+# Saidas geradas pelo pipeline (cada leitor gera as suas)
+results/
+runs/
+
+# Pesos: so os do artigo sao versionados
+*.pt
+*.pth
+*.pth.tar
+*.onnx
+!pesos_treinados/yolo26n_dut_best.pt
+pesos_treinados/treinados_localmente/
+
+# Baselines externos (OSTrack/ODTrack clonados)
+externos/
+
+# Videos
+*.mp4
+*.avi
+.pytest_cache/

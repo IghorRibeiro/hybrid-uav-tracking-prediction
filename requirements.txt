@@ -1,0 +1,31 @@
+# Dependencias do pipeline. Versoes minimas testadas; o ambiente do autor usou as
+# versoes entre parenteses (python check_ambiente.py --recomendado lista todas).
+# Versoes diferentes mudam os numeros nas ultimas casas: veja
+# docs/DIFERENCAS_ENTRE_AMBIENTES.md.
+
+# --- nucleo ---------------------------------------------------------------
+numpy>=1.24            # (2.4.5)
+pandas>=2.0            # (3.0.3)
+scipy>=1.10            # (1.17.1)
+matplotlib>=3.7
+pyyaml>=6.0
+
+# --- deteccao e rastreamento ------------------------------------------------
+torch>=2.0             # (2.12.0)
+torchvision>=0.15      # (0.27.0)
+ultralytics>=8.4       # (8.4.53) -- YOLO26, BoT-SORT e ByteTrack
+lap>=0.5.12            # associacao do BoT-SORT/ByteTrack no Ultralytics
+
+# Use SOMENTE o pacote contrib: CSRT, KCF, MOSSE e MedianFlow ficam nele.
+# Nao instale junto opencv-python nem opencv-python-headless.
+opencv-contrib-python>=4.8   # (4.13.0.92)
+
+# --- download do dataset ------------------------------------------------------
+gdown>=5.1             # funciona com gdown 5.x e 6.x
+
+# --- baseline DeepSORT (opcional) --------------------------------------------
+deep-sort-realtime>=1.3      # (1.3.2)
+setuptools<81                # deep-sort-realtime ainda importa pkg_resources
+
+# --- testes (opcional) -------------------------------------------------------
+pytest>=7
