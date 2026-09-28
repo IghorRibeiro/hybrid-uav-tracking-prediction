@@ -1,7 +1,3 @@
-# Por que os números mudam entre máquinas
-
-Rodar o mesmo pipeline no Colab, num Mac e num PC com GPU dá números diferentes nas últimas casas. Isso não é um erro de reprodução: detectores e rastreadores têm componentes que dependem de hardware e de versão de biblioteca. Este documento separa o que muda do que deve se manter.
-
 ## O que deve se manter
 
 * **Ordem de grandeza** de SA, SR@0.5, IoU, AUC e erro de predição (H5 a H30).
@@ -36,5 +32,3 @@ Exemplo real deste projeto: em duas rodadas do pipeline híbrido feitas pelo aut
 2. As versões de `torch`, `ultralytics` e `opencv-contrib-python` (`python check_ambiente.py`).
 3. Os pesos usados (os do artigo ou treinados por você).
 4. Os comandos exatos, inclusive `--period` e `--damping`.
-
-Com isso, qualquer diferença entre duas execuções fica explicável.
