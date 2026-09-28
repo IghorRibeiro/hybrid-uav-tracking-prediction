@@ -14,7 +14,7 @@ Ighor de Souza Ribeiro (CIAA), Rigel Procópio Fernandes (DSAM) e Gabriel de Sap
 
 | Componente | Papel |
 |---|---|
-| **YOLO26n** (ajuste fino no DUT Anti-UAV) | detecta o drone na inicialização e a cada **N_red = 15** quadros; se a confiança for ≥ 0,7, reancora o rastreador |
+| **YOLO26n** (fine-tuning no DUT Anti-UAV) | detecta o drone na inicialização e a cada **N_red = 15** quadros; se a confiança for ≥ 0,7, reancora o rastreador |
 | **CSRT** (OpenCV) | acompanha o alvo nos quadros intermediários, na CPU, sem rede neural |
 | **Filtro de Kalman de velocidade constante** | estado `[x, y, ẋ, ẏ]`, alimentado pelo centro da caixa; prevê H5, H10, H15 e H30 |
 | **Kalman Damped** (γ = 0,95) | multiplica a velocidade por γ a cada passo da predição, reduzindo a extrapolação em horizontes longos |
@@ -45,7 +45,7 @@ bash rodar_tudo.sh                                    # baixa o dataset, roda tu
 bash rodar_tudo.sh --pular-download --video video03   # com o dataset já baixado: teste rápido em uma sequência
 ```
 
-O script usa os pesos do artigo (`pesos_treinados/yolo26n_dut_best.pt`), escolhe o dispositivo automaticamente (CUDA, MPS ou CPU) e grava tudo em `results/`. Opções: `--treinar` refaz o ajuste fino do detector, `--com-deepsort` inclui o DeepSORT (lento), `--tabela1` valida os detectores e `--device mps` força o dispositivo.
+O script usa os pesos do artigo (`pesos_treinados/yolo26n_dut_best.pt`), escolhe o dispositivo automaticamente (CUDA, MPS ou CPU) e grava tudo em `results/`. Opções: `--treinar` refaz o fine-tuning do detector, `--com-deepsort` inclui o DeepSORT (lento), `--tabela1` valida os detectores e `--device mps` força o dispositivo.
 
 ## Passo a passo
 
@@ -83,7 +83,7 @@ Todos os métodos são avaliados sobre as mesmas 20 sequências e os mesmos 24.8
 
 ## O que esperar ao reproduzir
 
-O repositório entrega o **método**, não os números do autor: cada execução gera os seus próprios resultados. Versão do Ultralytics, dispositivo (CUDA, MPS ou CPU) e versão do OpenCV mudam algumas detecções limítrofes, e isso se propaga pelo rastreamento. Diferenças de alguns centésimos em SA e SR@0.5 e de alguns pixels no H30 são normais; o que deve se manter é a ordem de grandeza e o comportamento relativo entre os métodos. O FPS mede a sua máquina e só é comparável entre métodos da mesma execução.
+O repositório entrega o **método**, não os números do autor: cada execução gera os seus próprios resultados. Versão do Ultralytics, dispositivo (CUDA, MPS ou CPU) e versão do OpenCV mudam algumas detecções limítrofes, e isso se propaga pelo rastreamento. O que deve se manter é a ordem de grandeza e o comportamento relativo entre os métodos.
 
 * [`docs/DIFERENCAS_ENTRE_AMBIENTES.md`](docs/DIFERENCAS_ENTRE_AMBIENTES.md): o que muda entre máquinas e como relatar.
 * [`docs/VALIDACAO.md`](docs/VALIDACAO.md): o avaliador deste repositório, aplicado às predições originais do artigo, reproduz as Tabelas 2 e 3 na precisão publicada.
